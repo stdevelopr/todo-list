@@ -1,0 +1,47 @@
+body {
+    background-color: lightblue;
+}
+
+tr.false{
+	background-color: white;
+}
+
+tr.true{
+	background-color: gray;
+	text-decoration: line-through;
+	opacity: 0.5;
+}
+
+.table {
+    border-radius: 5px;
+    width: 100%;
+    float: none;
+}
+
+table th.edit, th.delete{
+	width:10px;
+}
+
+table th.ok{
+	width:10px;
+	padding-left: 5px;
+}
+
+.count{
+	position: relative;
+	margin-top: 100px;
+}
+
+.count p {
+	position: relative;
+	color: black;
+	margin-bottom: 0px;
+}
+
+.logo{
+	height: 50px;
+}
+
+img{
+	height: 30px;
+}
