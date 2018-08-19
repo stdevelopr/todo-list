@@ -3,6 +3,11 @@ import React, {Component} from 'react';
 
 class Modal extends Component {
 
+  constructor(){
+    super();
+    this.url = 'http://richardturra.pythonanywhere.com'
+  }
+
   //when the button update is clicked
   updateHandler = () => {
     // get the actual variables
@@ -16,9 +21,9 @@ class Modal extends Component {
 
     // make the request to update
     if (document.getElementById("radio_completed").checked) {
-      fetch('http://127.0.0.1:5000',{
-      method: 'POST',
-      headers: {
+      fetch(this.url,{
+        method: 'POST',
+        headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         'CRUD': "UP",
         'mode':'cors',
@@ -30,23 +35,24 @@ class Modal extends Component {
         if (text==='success'){
           //actualize the element with the new value
           document.getElementById("todo_"+id).innerHTML = todo
-          //actualize the class and tab positiondisplay
+          //actualize the class and tab position display
           if(modal_status === 'false' && origin !=='all'){
               document.getElementById(id).classList.add("d-none")
               count--;
               document.getElementById("count").innerHTML = count;
             }
             else{
-              document.getElementById(id).setAttribute('class','true');
+              document.getElementById("all").click();   
             }
         }
       })
       .catch(error => alert('error '+error))
+      
     }
     else{
-      fetch('http://127.0.0.1:5000',{
-      method: 'POST',
-      headers: {
+      fetch(this.url,{
+        method: 'POST',
+        headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         'CRUD': "UP",
         'mode':'cors',
@@ -65,7 +71,7 @@ class Modal extends Component {
               document.getElementById("count").innerHTML = count;
             }
             else{
-              document.getElementById(id).setAttribute('class','false');
+              document.getElementById("all").click();
             }
         }
       })
@@ -89,7 +95,7 @@ class Modal extends Component {
               </div>
               <div className="modal-body">
                 <input id="modal_input" type="text"/>
-                <label className="radio-inline"><input id="radio_pending" type="radio" name="optradio" checked/>Pending</label>
+                <label className="radio-inline"><input id="radio_pending" type="radio" name="optradio" defaultChecked/>Pending</label>
                 <label className="radio-inline"><input id="radio_completed" type="radio" name="optradio"/>Completed</label>
               </div>
               <div className="modal-footer">
