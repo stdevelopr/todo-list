@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class ListItem extends Component {
 	constructor(){
 		super();
-		this.url = 'http://richardturra.pythonanywhere.com'
+		this.url = 'https://richardturra.pythonanywhere.com'
 	}
 
 	//check ok button action

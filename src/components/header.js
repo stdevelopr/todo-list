@@ -8,7 +8,7 @@ class Header extends Component {
 		this.state = {
 			name:props.name
 		}
-		this.url = 'http://richardturra.pythonanywhere.com';
+		this.url = 'https://richardturra.pythonanywhere.com';
 	}
 
 

@@ -5,7 +5,7 @@ class Modal extends Component {
 
   constructor(){
     super();
-    this.url = 'http://richardturra.pythonanywhere.com'
+    this.url = 'https://richardturra.pythonanywhere.com'
   }
 
   //when the button update is clicked
