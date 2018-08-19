@@ -75,8 +75,8 @@ class Header extends Component {
 	}
 
 	//Create button action
-	createHandler(){
-		var todo = document.getElementById("todo").value
+	createHandler =() => {
+		var todo = document.getElementById("todo").value;
 		fetch(this.url, {
 			method: 'POST',
 	      	headers: {
