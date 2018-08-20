@@ -116,8 +116,7 @@ class Header extends Component {
 			// Header Navbar 
 			<div>
 				<nav className="navbar navbar-expand-md navbar-light bg-dark fixed-top">
-					 <a className="navbar-brand text-light"><img src="sense_logo.png" alt=''/>T<img src="react.png" alt=''/>DO LIST<h6>Powered by React</h6></a>
-  
+					<a className="navbar-brand text-light"><img src="sense_logo.png" alt=''/>T<img src="react.png" alt=''/>DO LIST<h6>Powered by React</h6></a>  
 					<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span className="navbar-toggler-icon"></span>
 					</button>
@@ -139,7 +138,6 @@ class Header extends Component {
 						  <button id='create' className="btn btn-success ml-1" onClick = {this.createHandler}>CREATE</button>				  
 						</div>
 						<a className="text-light" href="https://github.com/stdevelopr/React_TODOList"><img src="github.png" alt=''/></a>
-
 					</div>
 				</nav>
 			</div>

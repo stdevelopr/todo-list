@@ -24,11 +24,15 @@ class ListItem extends Component {
       	.then(r => r.text())
       	.then(res => {
       		if(res === 'success'){
+
       			document.getElementById(id).setAttribute('class','true');
       			if(origin === 'pending'){
       				document.getElementById(id).classList.add("d-none");
       				count--;
               		document.getElementById("count").innerHTML = count;
+      			}
+      			else if(origin === 'all'){
+      				document.getElementById("all").click();
       			}
       		}
       	})
@@ -74,7 +78,7 @@ class ListItem extends Component {
 		var del_id = "del_"+string_id;
 		return(
 			<tr id={this.props.todo.id} className={this.props.todo.status? "true" : "false"}>
-				<th className="ok"><button id={btn_id} className="ok btn btn-warning" onClick = {this.okHandler}><i className="fas fa-check"></i></button></th>
+				<th className="ok"><button id={btn_id} className="ok btn btn-warning" onClick = {(e)=> this.okHandler(e)}><i className="fas fa-check"></i></button></th>
 				<th id={todo_id}>{this.props.todo.item}</th>
 				<th className="edit"><button id={edit_id} type="button" className="btn btn-primary edit" onClick = {(e)=> this.editHandler(e)} data-toggle="modal" data-target="#EditModal"><i className="fas fa-edit"></i></button></th>
 				<th className="delete"><button id={del_id} className="delete btn btn-danger" onClick = {(e) => this.delHandler(e)}><i className="fas fa-backspace"></i></button></th>
