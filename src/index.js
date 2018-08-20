@@ -29,7 +29,7 @@ class App extends Component{
  	}
 
  	//receive data from the header component
-	onNewRequest(newRequest){
+	onRequest(newRequest){
 		var data = []
 		newRequest.data.map((item)=>{
 			return(data.push(item))
@@ -40,11 +40,20 @@ class App extends Component{
 		})
 	}
 
+	//create a new row
+	createRequest(new_todo){
+		var item = new_todo;
+		this.state.todos.push(item);
+		this.setState({
+			todos:this.state.todos,
+		})
+	}
+
 
 	render(){
 		return(
 			<div>
-				<Header request={this.onNewRequest.bind(this)}/>
+				<Header request={this.onRequest.bind(this)} create={this.createRequest.bind(this)}/>
 				<div className="container">
 					<Modal/>
 					<TodoList todo={this.state.todos}/>
