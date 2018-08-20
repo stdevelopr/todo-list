@@ -23,8 +23,8 @@ class ListItem extends Component {
       	})
       	.then(r => r.text())
       	.then(res => {
+      		//refresh the content
       		if(res === 'success'){
-
       			document.getElementById(id).setAttribute('class','true');
       			if(origin === 'pending'){
       				document.getElementById(id).classList.add("d-none");
@@ -50,6 +50,7 @@ class ListItem extends Component {
 	delHandler = (e) => {
 		var count = document.getElementById("count").innerHTML;
 		var id = e.target.closest('tr').id;
+		var origin = document.getElementById("modal_update").getAttribute("orig");
 		fetch(this.url,{
 	      	method: 'POST',
 	      	headers: {
@@ -61,10 +62,17 @@ class ListItem extends Component {
       	})
       	.then(r => r.text())
       	.then(res => {
+      		//refresh the content
       		if(res === 'success'){
       			document.getElementById(id).classList.add("d-none");
       			count--;
               	document.getElementById("count").innerHTML = count;
+              	if(origin ==='all'){
+              		document.getElementById("all").click();
+              	}
+              	else if(origin ==='pending'){
+              		document.getElementById("pending").click();
+              	}
       		}
       	}) 
 	}

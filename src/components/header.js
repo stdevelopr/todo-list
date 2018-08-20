@@ -6,7 +6,7 @@ class Header extends Component {
 	constructor(props){
 		super();
 		this.state = {
-			name:props.name
+			// name:props.name
 		}
 		this.url = 'https://richardturra.pythonanywhere.com';
 	}
@@ -97,14 +97,16 @@ class Header extends Component {
 	      		document.getElementById('todo').value = ''
 	      		var orig = document.getElementById('tbody').getAttribute("orig");
 	      		if (orig === 'all'){
-	      			document.getElementById("all").click();
+	      			//create a new element
+	      			res.text().then(text=> JSON.parse(text)).then(obj=> this.props.create({id:Number(obj['new_id']), item:todo, status:false}));
 	      			setTimeout(() => window.scrollTo(0,document.body.scrollHeight), 300);
 	      		}
 	      		else if (orig === 'completed'){
 	      			alert('todo created!')
 	      		}
 	      		else if (orig === 'pending'){
-	      			document.getElementById("pending").click();
+	      			//create a new element
+	      			res.text().then(text=> JSON.parse(text)).then(obj=> this.props.create({id:Number(obj['new_id']), item:todo, status:false}));
 	      			setTimeout(() => window.scrollTo(0,document.body.scrollHeight), 300)
 	      		}
       		}

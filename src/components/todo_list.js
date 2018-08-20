@@ -3,7 +3,7 @@ import ListItem from './list_item';
 
 
 class TodoList extends Component {
-
+	
 	render(){
 		//map the items and return a new item element
 		const items = this.props.todo.map((todo) =>{
